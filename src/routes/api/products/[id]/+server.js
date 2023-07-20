@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { toProduct } from '$lib/product.converter.js';
 import { error, json } from '@sveltejs/kit';
 import { createPool } from '@vercel/postgres';
@@ -17,6 +18,7 @@ async function findProductById(db, productId) {
 
 
 // Get one product
+// /api/products/1 => id = 1
 // @ts-ignore
 export async function GET({ params }) {
     const { id } = params;

@@ -25,7 +25,7 @@
     }
 
     async function create(){
-        // create or update the product
+        // create the product
         await fetch('/api/products', {
             method: 'POST',
             body: JSON.stringify(selectedProduct),
@@ -36,7 +36,14 @@
     }
 
     async function update(){
-
+        // update the product
+        await fetch(`/api/products/${selectedProduct.id}`, {
+            method: 'PUT',
+            body: JSON.stringify(selectedProduct),
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        });
     }
     
     // @ts-ignore

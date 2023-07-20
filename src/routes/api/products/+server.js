@@ -4,6 +4,7 @@ import { json } from '@sveltejs/kit';
 import { createPool } from '@vercel/postgres';
 
 // Get all products
+// GET /api/products
 export async function GET() {
     const db = createPool();
     const result = await db.query(`SELECT * FROM products ORDER BY id`);
@@ -13,7 +14,9 @@ export async function GET() {
     return json(rows);
 }
 
+
 // Create a new product
+// POST /api/products
 // @ts-ignore
 export async function POST({ request }) {
     const data = await request.json();
